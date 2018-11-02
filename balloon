@@ -1,0 +1,8 @@
+void createBalloon() {
+  int balloonx = round(random(1)*1000);
+  int speed = round(random(1)*100);
+  int time = millis()/1000;
+  int[] balloon = {balloonx,speed,time};
+  
+  balloons.add(balloon);
+}
