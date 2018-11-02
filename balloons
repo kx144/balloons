@@ -1,9 +1,27 @@
 ArrayList<int[]> balloons = new ArrayList<int[]>();
+int balloonsize = 50;
+int starttime = 0;
 
 void setup() {
   size(1000,700);
+  frameRate(10);
 }
 
 void draw() {
+  background(255);
+  //drawing the balloons
+  for (int i=0;i<balloons.size();i++) {
+    int[] balloon = balloons.get(i);
+    int balloonx = balloon[0];
+    int speed = balloon[1];
+    int time = balloon[2];
+    
+    rectMode(CENTER);
+    rect(balloonx,700-speed*(millis()/1000-time),balloonsize,balloonsize);
+  }
   
+  //creating new balloon
+  if (millis()>starttime && round(millis()) % 20 == 0) {
+    createBalloon();
+  }
 }
